@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome renders Welcome coponent correctly 1`] = `
+<h1>
+  Hello to you, 
+  World
+</h1>
+`;
