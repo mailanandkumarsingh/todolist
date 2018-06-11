@@ -1,15 +1,11 @@
-# Weather Web App
-This app gets weather forecast information available in GreatBritain for the next five days.
+# ToDo List App
+This add/edits/delete a todolist
 
 This app has been developed using :
 
 * React/Redux boiler plate 
-* [axios]Promises to make aysncronous network calls.
 * parse JSON data and generate model object from the data.
-* use [redux-promise](https://github.com/acdlite/redux-promise) middleware for handling promises.
-* [OpenWeatherMap](http://openweathermap.org) API to get weather forecast for 5 days.
 * google maps API to display the maps based on long/lat returned by OpenWeatherMap
-* react-d3 for plotting graphs
 * JEST framework for snapshot and unittestcases
 
 ###Getting Started###
@@ -17,7 +13,7 @@ This app has been developed using :
 Checkout this repo, install dependencies, then start webpack server with the following:
 
 ```
-	> git clone https://github.com/mailanandkumarsingh/weather-app.git
+	> git clone https://github.com/mailanandkumarsingh/todolist.git
 	> cd react-redux-weather-app
 	> npm install
 	> npm run dev

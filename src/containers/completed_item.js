@@ -10,7 +10,7 @@ class Completed extends Component {
 
   displayItem(item) {
     return(
-      <ItemDetail key={item} data={item} />
+      <ItemDetail key={item} data={item} strike={true} />
     )
   }
 
@@ -34,7 +34,7 @@ class Completed extends Component {
 
 function mapStateToProps(state) {
   console.log('What is the state  in Completed ----> ', state);
-  return {completeList: state.completeList}; // { weather } === { weather: weather }
+  return {completeList: state.completeList};
 }
 
 export default connect(mapStateToProps)(Completed)

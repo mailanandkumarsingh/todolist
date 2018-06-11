@@ -6,14 +6,30 @@ import { editItem, deleteItem, completedItem } from '../actions/index';
 class ItemDetail extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      checkBoxStatus: false,
+      buttonText: 'Edit'
+    }
     this.onEditClick = this.onEditClick.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
     this.onComplete = this.onComplete.bind(this);
+    this.editContainer = this.editContainer.bind(this);
+    this.onEditChange = this.onEditChange.bind(this);
   }
 
   onEditClick(event) {
     event.preventDefault();
-    this.props.editItem(this.props.data);
+    console.log('What is the text --------------- ', event.target.value);
+    if(this.state.buttonText === 'Edit') {
+      this.setState({
+        buttonText: 'Save'
+      });
+    } else {
+      this.setState({
+        buttonText: 'Edit'
+      });
+    }
+    
   }
 
   onDeleteClick(event) {
@@ -24,7 +40,35 @@ class ItemDetail extends Component {
   onComplete(event) {
     event.preventDefault();
     this.props.completedItem(this.props.data);
-    
+    const pullStatus = this.state.checkBoxStatus;
+    this.setState({
+      checkBoxStatus: !pullStatus
+    });
+  }
+
+  onEditChange(event) {
+    console.log('TARGET _____ ', event.target.value);
+    this.props.editItem(event.target.value);
+  }
+
+
+  editContainer() {
+    console.log('-----> This props ----- >', this.props);
+    if(this.props.strike) {
+      return(
+        <strike>{this.props.data}</strike>
+      )
+    } else {
+      if(this.state.buttonText === 'Edit') {
+        return (
+          this.props.data
+        );
+      } else {
+        return (
+          <input type="text" name="edit" value={this.props.data} onChange={this.onEditChange}/>
+        );
+      }
+    }
   }
 
   render() {
@@ -33,13 +77,15 @@ class ItemDetail extends Component {
         <div className="row">
           <div className="col-sm-6" >
             <p>
-              <input type="checkbox" name="vehicle1" value="Bike" onClick={this.onComplete}/>
-              {this.props.data}
+              <input type="checkbox" checked={this.state.checkBoxStatus} onClick={this.onComplete}/>
+              {this.editContainer()}
             </p>
           </div>
           <div className="col-sm-6">
             <p>
-              <button type="button" className="btn btn-primary" onClick={ this.onEditClick }>Edit</button>
+              <button type="button" className="btn btn-primary" onClick={ this.onEditClick }>
+                {this.state.buttonText}
+              </button>
               <button type="button" className="btn btn-danger" onClick={ this.onDeleteClick }>Delete</button>
             </p>
           </div>

@@ -5,7 +5,8 @@ export default function(state = [], action) {
     case COMPLETED_ITEM:
       // return state.concat([ action.payload.data ]);
       //console.log('what is the state of completedItem ----> ', state);
-      //console.log('what is action.payload ----> ', action.payload);
+      console.log('what is reducer complete ----> ', state);
+
       return [ action.payload, ...state ];
   }
 
