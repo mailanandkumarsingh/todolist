@@ -5,7 +5,6 @@ This app has been developed using :
 
 * React/Redux boiler plate 
 * parse JSON data and generate model object from the data.
-* google maps API to display the maps based on long/lat returned by OpenWeatherMap
 * JEST framework for snapshot and unittestcases
 
 ###Getting Started###
